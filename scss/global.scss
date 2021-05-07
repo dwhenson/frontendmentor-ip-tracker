@@ -1,0 +1,77 @@
+@import "reset";
+
+/* ==================================================
+	Global Styles
+	================================================== */
+
+@import "abstracts/variables";
+@import "abstracts/breakpoints";
+
+/* Base Styles
+   ================================================== */
+
+body {
+	background-color: var(--clr-neutral-100);
+	font-family: var(--ff-body);
+	font-size: var(--step-0);
+	font-weight: 400;
+	line-height: 1.7;
+	text-align: center;
+	color: var(--clr-neutral-400);
+
+	@include respond-to("medium") {
+		text-align: left;
+	}
+}
+
+:is(h1, h2, h3) {
+	font-weight: 500;
+	line-height: 1.1;
+	color: var(--clr-primary-100);
+}
+
+h1 {
+	font-size: var(--step-4);
+}
+
+h2 {
+	font-size: var(--step-3);
+}
+
+h3 {
+	font-size: var(--step-2);
+}
+
+a {
+	transition: all 200ms;
+	text-decoration: none;
+	color: var(--clr-neutral-500);
+
+	&:hover {
+		color: var(--clr-primary-200);
+	}
+}
+
+/* ==================================================
+	Utilities
+	================================================== */
+
+@import "utilities/center-content";
+@import "utilities/container";
+@import "utilities/flow-section";
+@import "utilities/flow-content";
+@import "utilities/visually-hidden";
+@import "utilities/outline";
+@import "utilities/grid";
+@import "utilities/split";
+@import "utilities/cta";
+
+/* ==================================================
+   Blocks
+   ================================================== */
+@import "blocks/header";
+@import "blocks/navigation";
+@import "blocks/intro";
+@import "blocks/choose";
+@import "blocks/latest";
+@import "blocks/footer";

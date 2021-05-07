@@ -1,0 +1,28 @@
+/* 	Custom Properties
+   	================================================== */
+
+:root {
+	/* Colors */
+	--clr-primary-100: hsla(233, 26%, 24%, 1);
+	--clr-primary-200: hsla(158, 62%, 49%, 1);
+	--clr-primary-300: hsla(192, 70%, 51%, 1);
+	--clr-neutral-100: hsla(0, 0%, 100%, 1);
+	--clr-neutral-200: hsla(0, 0%, 98%, 1);
+	--clr-neutral-300: hsla(220, 16%, 96%, 1);
+	--clr-neutral-400: hsla(233, 8%, 62%, 1);
+	--clr-neutral-500: hsla(0, 0%, 0%, 1);
+
+	/* Spacing */
+	--spacer: 1em;
+
+	/* Font sizes */
+	--step--1: clamp(0.83rem, 0.83rem + 0.02vw, 0.84rem);
+	--step-0: clamp(1rem, 0.96rem + 0.19vw, 1.13rem);
+	--step-1: clamp(1.2rem, 1.09rem + 0.45vw, 1.5rem);
+	--step-2: clamp(1.44rem, 1.24rem + 0.84vw, 2rem);
+	--step-3: clamp(1.73rem, 1.4rem + 1.41vw, 2.66rem);
+	--step-4: clamp(2.07rem, 1.55rem + 2.22vw, 3.55rem);
+
+	/* Font-families */
+	--ff-body: "Public Sans", sans-serif;
+}
