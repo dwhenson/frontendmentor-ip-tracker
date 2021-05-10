@@ -8,6 +8,12 @@
 		<meta name="keywords" content="" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" />
 		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+			integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+			crossorigin=""
+		/>
+		<link
 			href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,500&display=swap"
 			rel="stylesheet"
 		/>
@@ -35,23 +41,28 @@
 			<div class="data split" aria-live="polite">
 				<div class="datum container flow-content">
 					<h2>IP Address</h2>
-					<p data-address>192.212.174</p>
+					<p data-ip></p>
 				</div>
 				<div class="datum container flow-content">
 					<h2>Location</h2>
-					<p data-location>Muthaiga, Nairobi</p>
+					<p data-location></p>
 				</div>
 				<div class="datum container flow-content">
 					<h2>Timezone</h2>
-					<p data-UTC>UTC +03:00</p>
+					<p data-utc></p>
 				</div>
 				<div class="datum container flow-content">
 					<h2>ISP</h2>
-					<p data-isp>JTLA Faiba</p>
+					<p data-isp></p>
 				</div>
 			</div>
+			<div id="mapid"></div>
 		</main>
-
+		<script
+			src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+			integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+			crossorigin=""
+		></script>
 		<script src="js/app.js"></script>
 	</body>
 </html>

@@ -1,5 +1,6 @@
 .main {
 	grid-column: 1 / -1;
+	height: 100%;
 }
 
 .data {
@@ -21,4 +22,8 @@
 			border-left: 1px solid var(--clr-neutral-200);
 		}
 	}
+}
+
+#mapid {
+	height: 100%;
 }
