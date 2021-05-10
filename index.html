@@ -6,39 +6,52 @@
 		<title>IP Address Tracker</title>
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheeet" href="css/styles.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,500&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="css/styles.css" />
 	</head>
 
-	<body>
-		<header>
+	<body class="center-content">
+		<header class="header center-content flow-content">
 			<h1>IP Address Tracker</h1>
 			<form>
-				<label for="ip-address">Search for any IP address or domaim</label>
-				<input id="ip-address" type="text" placeholder="Search for any IP address or domaim" />
-				<button><img src="images/icon-arrow.svg" alt="" aria-label="Submit" /></button>
+				<div class="wrapper">
+					<label class="visually-hidden" for="ip-address">Search for any IP address or domain</label>
+					<input id="ip-address" type="text" placeholder="Search for any IP address or domaim" />
+					<button>
+						<svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
+							<path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" />
+						</svg>
+					</button>
+				</div>
+				<div id="errorMessage" class="error" role="alert">Please check that IP address</div>
 			</form>
 		</header>
 
-		<main>
+		<main class="center-content">
 			<div class="data split" aria-live="polite">
 				<div class="datum">
 					<h2>IP Address</h2>
-					<p data-address></p>
+					<p data-address>192.212.174</p>
 				</div>
 				<div class="datum">
 					<h2>Location</h2>
-					<p data-location></p>
+					<p data-location>Muthaiga, Nairobi</p>
 				</div>
 				<div class="datum">
 					<h2>Timezone</h2>
-					<p data-UTC></p>
+					<p data-UTC>UTC +03:00</p>
 				</div>
 				<div class="datum">
 					<h2>ISP</h2>
-					<p data-isp></p>
+					<p data-isp>JTLA Faiba</p>
 				</div>
 			</div>
 		</main>
+
+		<script src="js/app.js"></script>
 	</body>
-	<script src="js/app.js"></script>
 </html>
