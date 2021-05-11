@@ -26,7 +26,7 @@
 			<form>
 				<div class="wrapper">
 					<label class="visually-hidden" for="ip-address">Search for any IP address or domain</label>
-					<input id="ip-address" type="text" placeholder="Search for any IP address or domaim" />
+					<input id="ip-address" type="text" placeholder="Search for any IP address or domain" />
 					<button>
 						<svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
 							<path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" />
@@ -35,29 +35,27 @@
 				</div>
 				<div id="errorMessage" class="error" role="alert">Please check that IP address</div>
 			</form>
-		</header>
-
-		<main class="main center-content">
 			<div class="data split" aria-live="polite">
 				<div class="datum container flow-content">
 					<h2>IP Address</h2>
-					<p data-ip></p>
+					<p data-ip>8.8.8.8</p>
 				</div>
 				<div class="datum container flow-content">
 					<h2>Location</h2>
-					<p data-location></p>
+					<p data-location>Mountain View, California, US</p>
 				</div>
 				<div class="datum container flow-content">
 					<h2>Timezone</h2>
-					<p data-utc></p>
+					<p data-utc>UTC -07:00</p>
 				</div>
 				<div class="datum container flow-content">
 					<h2>ISP</h2>
-					<p data-isp></p>
+					<p data-isp>Google LLC</p>
 				</div>
 			</div>
-			<div id="mapid"></div>
-		</main>
+		</header>
+
+		<main id="mapid" class="main center-content"></main>
 		<script
 			src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
 			integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="

@@ -198,7 +198,7 @@ p {
 
 /* Add styled focus states on tab not hover */
 :focus-visible {
-  outline: 3px dotted var(--clr-primary-100);
+  outline: 3px dotted var(--clr-neutral-100);
   outline-offset: 0.25rem;
 }
 
@@ -213,7 +213,7 @@ p {
   justify-content: space-between;
   gap: var(--spacer);
 }
-@media (min-width: 45em) {
+@media (min-width: 31.25em) {
   .split {
     flex-direction: row;
   }
@@ -223,8 +223,8 @@ p {
    Blocks
    ================================================== */
 .header {
+  position: relative;
   grid-column: 1/-1;
-  padding-bottom: 5rem;
   background-image: url("./../../images/pattern-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -236,14 +236,13 @@ form .wrapper {
   justify-content: center;
   width: min(100%, 35rem);
   box-shadow: 0 0.5em 0.5em rgba(38, 38, 38, 0.25);
-  margin-top: 2rem;
   margin-right: auto;
   margin-bottom: 2rem;
   margin-left: auto;
 }
 form input {
   width: 100%;
-  padding: 0.5em 1em;
+  padding: 0.75em 1em;
   border: none;
   border-radius: 0.5em;
 }
@@ -273,17 +272,22 @@ form div.error {
 
 .main {
   grid-column: 1/-1;
+  height: 100%;
 }
 
 .data {
+  position: relative;
+  display: flex;
+  z-index: 1000;
   padding: clamp(1rem, 2.5%, 2rem);
   border-radius: 1em;
   box-shadow: 0 0.5em 0.5em rgba(38, 38, 38, 0.25);
+  margin-top: -4rem;
   background-color: var(--clr-neutral-100);
-  transform: translateY(-50%);
+  transform: translateY(50%);
   text-align: center;
 }
-@media (min-width: 45em) {
+@media (min-width: 31.25em) {
   .data {
     text-align: left;
   }
