@@ -14,33 +14,35 @@ const isp = document.querySelector("[data-isp]");
 
 /* Maps
 /* ==================================================== */
-
-// Create default map options
-const mapOptions = {
-	center: [37.40599, -122.078514],
-	zoom: 14,
-};
-// Initiate map object
-const mymap = L.map("mapid", mapOptions);
+const mymap = L.map("mapid").setView([37.40599, -122.078514], 13);
 
 /* ====================================================
    Functions
    ==================================================== */
 
-function renderData(data) {
+function renderDataIP(data) {
 	ip.textContent = `${data.ip}`;
 	ipLocation.textContent = `${data.location.city}, ${data.location.region}, ${data.location.country}`;
 	utc.textContent = `UTC ${data.location.timezone}`;
 	isp.textContent = `${data.isp}`;
 }
 
+function updateMap(data) {
+	mymap.setView([data.location.lat, data.location.lng], 14);
+	L.tileLayer(
+		"https://tile.thunderforest.com/neighbourhood/{z}/{x}/{y}.png?apikey=1078500321124a708f0fa546fff421f0"
+	).addTo(mymap);
+}
+
 async function fetchData(endpoint) {
 	const response = await fetch(endpoint);
 	const data = await response.json();
-	renderData(data);
-	console.log(data.location.lat);
+	renderDataIP(data);
+	updateMap(data);
 }
 
+/* Handlers
+/* ==================================================== */
 function inputHandler(event) {
 	event.preventDefault();
 	if (!event.target.closest("form")) return;
@@ -58,6 +60,7 @@ fetchData(`https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=8.8.8.8`);
 
 /* Maps
    ---------------- */
+// Initiate map object
 L.tileLayer(
 	"https://tile.thunderforest.com/neighbourhood/{z}/{x}/{y}.png?apikey=1078500321124a708f0fa546fff421f0"
 ).addTo(mymap);
