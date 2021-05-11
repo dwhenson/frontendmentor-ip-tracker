@@ -14,7 +14,8 @@ const isp = document.querySelector("[data-isp]");
 
 /* Maps
 /* ==================================================== */
-const mymap = L.map("mapid").setView([37.40599, -122.078514], 13);
+const mymap = L.map("mapid", { zoomControl: false }).setView([37.419857, -122.078827], 10);
+const popup = L.popup();
 
 /* ====================================================
    Functions
@@ -32,6 +33,7 @@ function updateMap(data) {
 	L.tileLayer(
 		"https://tile.thunderforest.com/neighbourhood/{z}/{x}/{y}.png?apikey=1078500321124a708f0fa546fff421f0"
 	).addTo(mymap);
+	L.marker([data.location.lat, data.location.lng]).addTo(mymap);
 }
 
 async function fetchData(endpoint) {
@@ -60,7 +62,9 @@ fetchData(`https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=8.8.8.8`);
 
 /* Maps
    ---------------- */
-// Initiate map object
+// Initiate map
 L.tileLayer(
 	"https://tile.thunderforest.com/neighbourhood/{z}/{x}/{y}.png?apikey=1078500321124a708f0fa546fff421f0"
 ).addTo(mymap);
+// Position controls
+L.control.zoom({ position: "bottomright" }).addTo(mymap);
