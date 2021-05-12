@@ -80,9 +80,7 @@ function inputHandler(event) {
 		if (errorContainer.classList.contains("error")) {
 			errorContainer.classList.remove("error");
 		}
-		fetchData(
-			`https://cors-anywhere.herokuapp.com/https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=${ipAddressInput.value}`
-		);
+		fetchData(`https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=${ipAddressInput.value}`);
 	} else {
 		errorContainer.classList.add("error");
 	}
@@ -95,7 +93,7 @@ function inputHandler(event) {
 /* IP address
    ---------------- */
 document.addEventListener("submit", inputHandler);
-fetchData(`https://cors-anywhere.herokuapp.com/https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=`);
+fetchData(`https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=`);
 
 /* Maps
    ---------------- */
