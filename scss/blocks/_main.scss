@@ -1,6 +1,6 @@
 .main {
 	grid-column: 1 / -1;
-	height: 100%;
+	height: max(20rem, 100%);
 }
 
 .data {
@@ -22,8 +22,10 @@
 	.datum {
 		flex: 1;
 
-		&:not(:first-of-type) {
-			border-left: 1px solid var(--clr-neutral-200);
+		@include respond-to("medium") {
+			&:not(:first-of-type) {
+				border-left: 1px solid var(--clr-neutral-200);
+			}
 		}
 	}
 }

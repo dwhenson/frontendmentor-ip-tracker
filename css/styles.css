@@ -276,7 +276,7 @@ form .validate.error {
 
 .main {
   grid-column: 1/-1;
-  height: 100%;
+  height: max(20rem, 100%);
 }
 
 .data {
@@ -299,6 +299,8 @@ form .validate.error {
 .data .datum {
   flex: 1;
 }
-.data .datum:not(:first-of-type) {
-  border-left: 1px solid var(--clr-neutral-200);
+@media (min-width: 31.25em) {
+  .data .datum:not(:first-of-type) {
+    border-left: 1px solid var(--clr-neutral-200);
+  }
 }
