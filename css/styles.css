@@ -276,23 +276,25 @@ form .validate.error {
 
 .main {
   grid-column: 1/-1;
-  height: max(20rem, 100%);
+  height: max(60rem, 100%);
 }
 
 .data {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   z-index: 1000;
   padding: clamp(1rem, 2.5%, 2rem);
   border-radius: 1em;
   box-shadow: 0 0.5em 0.5em rgba(38, 38, 38, 0.25);
-  margin-top: -4rem;
+  margin-top: -10rem;
   background-color: var(--clr-neutral-100);
   transform: translateY(50%);
   text-align: center;
 }
 @media (min-width: 31.25em) {
   .data {
+    margin-top: -5.5rem;
     text-align: left;
   }
 }
