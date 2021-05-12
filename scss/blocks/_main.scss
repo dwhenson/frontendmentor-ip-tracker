@@ -1,21 +1,23 @@
 .main {
 	grid-column: 1 / -1;
-	height: max(20rem, 100%);
+	height: max(60rem, 100%);
 }
 
 .data {
 	position: relative;
 	display: flex;
+	flex-wrap: wrap;
 	z-index: 1000;
 	padding: clamp(1rem, 2.5%, 2rem);
 	border-radius: 1em;
 	box-shadow: 0 0.5em 0.5em hsla(0, 0%, 15%, 0.25);
-	margin-top: -4rem;
+	margin-top: -10rem;
 	background-color: var(--clr-neutral-100);
 	transform: translateY(50%);
 	text-align: center;
 
 	@include respond-to("medium") {
+		margin-top: -5.5rem;
 		text-align: left;
 	}
 
