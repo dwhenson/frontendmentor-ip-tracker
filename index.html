@@ -19,21 +19,22 @@
 		/>
 		<link rel="stylesheet" href="css/styles.css" />
 	</head>
-
 	<body class="center-content">
 		<header class="header center-content flow-content">
 			<h1>IP Address Tracker</h1>
 			<form>
-				<div class="wrapper">
-					<label class="visually-hidden" for="ip-address">Search for any IP address or domain</label>
-					<input id="ip-address" type="text" placeholder="Search for any IP address or domain" />
-					<button>
-						<svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
-							<path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" />
-						</svg>
-					</button>
+				<div>
+					<div class="wrapper">
+						<label class="visually-hidden" for="ip-address">Search for any IP address or domain</label>
+						<input id="ip-address" type="text" placeholder="Search for any IP address or domain" />
+						<button>
+							<svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
+								<path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" />
+							</svg>
+						</button>
+					</div>
+					<div id="errorMessage" class="wrapper validate" role="alert">Please check that IP address</div>
 				</div>
-				<div id="errorMessage" class="error" role="alert">Please check that IP address</div>
 			</form>
 			<div class="data split" aria-live="polite" aria-atomic="true">
 				<div class="datum container flow-content">
@@ -54,7 +55,6 @@
 				</div>
 			</div>
 		</header>
-
 		<main id="mapid" class="main center-content"></main>
 		<script
 			src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"

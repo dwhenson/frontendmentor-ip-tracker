@@ -4,7 +4,6 @@
 
 /* IP address
 /* ==================================================== */
-
 const apiKey = "at_uFtj0rIWm2RpBWtn3WeMPPcIZqvbo";
 const ipAddressInput = document.querySelector("#ip-address");
 const ip = document.querySelector("[data-ip]");
@@ -12,7 +11,7 @@ const ipLocation = document.querySelector("[data-location]");
 const utc = document.querySelector("[data-utc]");
 const isp = document.querySelector("[data-isp]");
 const regex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-
+const errorContainer = document.querySelector(".validate");
 /* Maps
 /* ==================================================== */
 const mymap = L.map("mapid", { zoomControl: false }).setView([37.419857, -122.078827], 10);
@@ -40,7 +39,16 @@ function renderDataIP(data) {
 function updateMap(data) {
 	mymap.setView([data.location.lat, data.location.lng], 14);
 	L.tileLayer(
-		"https://tile.thunderforest.com/neighbourhood/{z}/{x}/{y}.png?apikey=1078500321124a708f0fa546fff421f0"
+		"https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZGF2ZWhlbnNvbiIsImEiOiJja29pd2xucWEwMHhsMnZsOGppem1jcGhiIn0.KUpHE-81tcvykVbJvej1KA",
+		{
+			attribution:
+				'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+			maxZoom: 18,
+			id: "mapbox/streets-v11",
+			tileSize: 512,
+			zoomOffset: -1,
+			accessToken: "pk.eyJ1IjoiZGF2ZWhlbnNvbiIsImEiOiJja29pd2xucWEwMHhsMnZsOGppem1jcGhiIn0.KUpHE-81tcvykVbJvej1KA",
+		}
 	).addTo(mymap);
 	L.marker([data.location.lat, data.location.lng], { icon: mapIcon }).addTo(mymap);
 }
@@ -67,9 +75,17 @@ async function fetchData(endpoint) {
 function inputHandler(event) {
 	event.preventDefault();
 	if (!event.target.closest("form")) return;
-	// TODO: add check of below against regex, and fetch only if true
-	console.log(event.target.querySelector("input").value);
-	fetchData(`https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=${ipAddressInput.value}`);
+	// Check if IP address is valid
+	if (regex.test(event.target.querySelector("input").value)) {
+		if (errorContainer.classList.contains("error")) {
+			errorContainer.classList.remove("error");
+		}
+		fetchData(
+			`https://cors-anywhere.herokuapp.com/https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=${ipAddressInput.value}`
+		);
+	} else {
+		errorContainer.classList.add("error");
+	}
 }
 
 /*  ==================================================
@@ -79,13 +95,22 @@ function inputHandler(event) {
 /* IP address
    ---------------- */
 document.addEventListener("submit", inputHandler);
-fetchData(`https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=`);
+fetchData(`https://cors-anywhere.herokuapp.com/https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=`);
 
 /* Maps
    ---------------- */
 // Initiate map
 L.tileLayer(
-	"https://tile.thunderforest.com/neighbourhood/{z}/{x}/{y}.png?apikey=1078500321124a708f0fa546fff421f0"
+	"https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZGF2ZWhlbnNvbiIsImEiOiJja29pd2xucWEwMHhsMnZsOGppem1jcGhiIn0.KUpHE-81tcvykVbJvej1KA",
+	{
+		attribution:
+			'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		maxZoom: 18,
+		id: "mapbox/streets-v11",
+		tileSize: 512,
+		zoomOffset: -1,
+		accessToken: "pk.eyJ1IjoiZGF2ZWhlbnNvbiIsImEiOiJja29pd2xucWEwMHhsMnZsOGppem1jcGhiIn0.KUpHE-81tcvykVbJvej1KA",
+	}
 ).addTo(mymap);
 // Position controls
 L.control.zoom({ position: "bottomright" }).addTo(mymap);

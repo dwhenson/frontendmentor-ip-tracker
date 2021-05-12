@@ -237,7 +237,6 @@ form .wrapper {
   width: min(100%, 35rem);
   box-shadow: 0 0.5em 0.5em rgba(38, 38, 38, 0.25);
   margin-right: auto;
-  margin-bottom: 2rem;
   margin-left: auto;
 }
 form input {
@@ -262,12 +261,17 @@ form button {
 form button:hover {
   background-color: var(--clr-neutral-200);
 }
-form div.error {
-  display: none;
-  margin-top: 0.25em;
-  margin-left: 1em;
-  font-size: 1rem;
+form .validate {
+  justify-content: start;
+  visibility: hidden;
+  padding-left: 1rem;
+  box-shadow: revert;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
   color: red;
+}
+form .validate.error {
+  visibility: revert;
 }
 
 .main {
