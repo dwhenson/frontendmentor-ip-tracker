@@ -198,7 +198,7 @@ p {
 
 /* Add styled focus states on tab not hover */
 :focus-visible {
-  outline: 3px dotted var(--clr-neutral-100);
+  outline: 3px dotted var(--clr-neutral-300);
   outline-offset: 0.25rem;
 }
 
